@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # DiANA Chat – WordPress Plugin
 
 DiANA ist ein leichtes Chat-Widget für WordPress. Es nutzt die OpenAI Responses API, rendert Markdown, erkennt YouTube-Links, zeigt PDFs im Inline-Viewer, hat Prompt-Buttons, Tipp-Indicator, Rate-Limit, Origin-Check und eine DSGVO-Einwilligung mit einstellbarem Ablauf in Tagen. Farben, Texte und Regeln sind im Backend konfigurierbar.
@@ -29,285 +28,237 @@ DiANA ist ein leichtes Chat-Widget für WordPress. Es nutzt die OpenAI Responses
 
 ```text
 [diana_chat]
-=======
-# <div align="center">
 
-# &nbsp; <img src="assets/logo-diana.png" alt="DiANA Chat Logo" width="120" height="120"/>
-
-# &nbsp; <h1>DiANA – KI-Chat für WordPress</h1>
-
-# &nbsp; <p><strong>Leichtes, datenschutzfreundliches und vollständig anpassbares Chat-Plugin für WordPress – powered by OpenAI (Responses API)</strong></p>
-
-# 
-
-# &nbsp; \[!\[WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg?logo=wordpress)](#)
-
-# &nbsp; \[!\[PHP](https://img.shields.io/badge/PHP-8.0%2B-8892bf.svg?logo=php)](#)
-
-# &nbsp; \[!\[Lizenz: GPL v2](https://img.shields.io/badge/Lizenz-GPLv2-blue.svg)](LICENSE)
-
-# &nbsp; \[!\[Status](https://img.shields.io/badge/Status-aktiv-brightgreen.svg)](#)
-
-# </div>
-
-# 
-
-# ---
-
-# 
-
-# \## ✨ Überblick
-
-# 
-
-# \*\*DiANA\*\* ist ein WordPress-Plugin, das einen modernen KI-Assistenten direkt auf deiner Website bereitstellt.  
-
-# Es nutzt die \*\*OpenAI Responses API (GPT-5)\*\* für Echtzeit-Dialoge und bietet:
-
-# 
-
-# \- saubere \*\*Markdown-Ausgabe\*\*
-
-# \- automatische Erkennung von \*\*YouTube- und PDF-Links\*\*
-
-# \- \*\*Prompt-Buttons\*\* für Schnellaktionen
-
-# \- \*\*Tipp-Indikator\*\* während der Antwort
-
-# \- \*\*Rate-Limit\*\* und \*\*Origin-Check\*\*
-
-# \- \*\*DSGVO-Einwilligung\*\* mit frei wählbarer Ablaufdauer (z. B. 30, 60 oder 90 Tage)
-
-# \- vollständig \*\*anpassbare Farben und Texte\*\*
-
-# \- \*\*lokale Speicherung\*\* des Chatverlaufs im Browser  
-
-# 
-
-# Keine Chat-Daten werden auf deinem Server gespeichert.
-
-# 
-
-# ---
-
-# 
-
-# \## 🚀 Funktionen
-
-# 
-
-# ✅ OpenAI Responses API mit `input` Payload  
-
-# ✅ Markdown-Rendering (Überschriften, Listen, Code, Links)  
-
-# ✅ YouTube-Erkennung mit Vorschaubild + Inline-Player  
-
-# ✅ PDF-Erkennung und Inline-Viewer  
-
-# ✅ Prompt-Buttons für vordefinierte Eingaben  
-
-# ✅ Tipp-Indikator während der Antwort  
-
-# ✅ Rate-Limit \& Origin-Check integriert  
-
-# ✅ DSGVO-Einwilligung mit Ablauf (30–90 Tage)  
-
-# ✅ Anpassbare Farbpalette  
-
-# ✅ Lokale Speicherung \& Löschfunktion  
-
-# 
-
-# ---
-
-# 
-
-# \## 🧩 Verzeichnisstruktur
-
-# 
 diana-ai-bot/
 ├─ diana-chat.php
 ├─ includes/
-│ ├─ settings.php → Admin-Einstellungen & Farbauswahl
-│ ├─ rest.php → REST-Proxy zur OpenAI-API
-│ ├─ helpers.php → Rate-Limit- und Origin-Funktionen
-│ ├─ curl-hardening.php → Timeout & Stabilität für API-Anfragen
-│ └─ cleanup.php → tägliche Bereinigung alter Transients
+│  ├─ settings.php
+│  ├─ rest.php
+│  ├─ helpers.php
+│  ├─ curl-hardening.php
+│  └─ cleanup.php
 ├─ assets/
-│ ├─ css/diana-chat.css → Layout & Styles
-│ ├─ js/diana-chat.js → Chat-Logik (Markdown, PDF, YouTube)
-│ ├─ js/diana-consent.js → Einwilligungsdialog (DSGVO)
-│ └─ admin/colorpicker.js → Farbauswahl im Backend
+│  ├─ css/
+│  │  └─ diana-chat.css
+│  ├─ js/
+│  │  ├─ diana-chat.js
+│  │  └─ diana-consent.js
+│  └─ admin/
+│     └─ colorpicker.js
 └─ README.md
 
----
 
-## ⚙️ Installation
+Kurz erklärt
 
-1. Repository klonen oder ZIP herunterladen:
-   ```bash
-   git clone https://github.com/mhtechnik/DIANA-AI-Bot.git
+diana-chat.php: Plugin Bootstrap, Assets, Shortcode, WP Cron Hooks
 
-    Den Ordner diana-ai-bot nach
-    wp-content/plugins/ kopieren
+includes/settings.php: Backend-Formular und Optionen
 
-    Im WordPress-Backend „Diana Chat“ aktivieren
+includes/rest.php: REST Proxy zu OpenAI, Rate-Limit, Origin-Check
 
-    Unter Einstellungen → Diana Chat API-Key und Optionen setzen
+includes/helpers.php: Hilfsfunktionen wie Rate-Limit Keys
 
-    Den Shortcode einfügen:
+includes/curl-hardening.php: Zeitlimits, Retries, saubere Fehler
 
-    [diana_chat]
+includes/cleanup.php: tägliche Bereinigung von Transients und optional debug.log
 
-🔧 Einstellungen im Backend
-🔐 API
-Feld	Beschreibung
-API Key	Dein OpenAI-API-Schlüssel
-Base URL	Optional, Standard: https://api.openai.com
-Modell	z. B. gpt-5
-Temperatur	Optional (wird bei GPT-5 ignoriert)
-Max Tokens	Maximale Ausgabegröße
-Stop-Sequenzen	Kommagetrennte Liste von Stop-Wörtern
-💬 Prompt
+assets/js/diana-chat.js: UI Logik, Markdown, YouTube, PDF, Persistenz
 
-Definiert, wie DiANA spricht.
+assets/js/diana-consent.js: Consent-Dialog, Ablauf in Tagen
+
+assets/css/diana-chat.css: Styles, responsive Typografie, Farben
+
+Anforderungen
+
+WordPress 6.0 oder neuer
+
+PHP 8.0 oder neuer
+
+OpenAI API Key
+
+HTTPS aktiv
+
+Konfiguration im Backend
+API
+
+API Key: dein OpenAI Key
+
+Base URL: optional, Standard ist https://api.openai.com
+
+Model: z. B. gpt-5
+
+Temperatur: Zahl, greift nicht bei allen Modellen
+
+Max Tokens: Responses Feld max_output_tokens
+
+Stop Sequenzen: kommagetrennt
+
+Prompt
+
+System Prompt: z. B. Rolle und Tonalität
+
+UI
+
+Name im UI: z. B. DiANA
+
+Avatar URL: rundes Bild
+
+Begrüßung: erster Bot-Text
+
+Prompt Buttons: kommagetrennte Liste
+
+PDF-Guides
+
+Jede Zeile: Regex | Titel | https://.../leitfaden.pdf | optionales Thumbnail
 Beispiel:
 
-Du bist DiANA, eine ruhige Co-Moderatorin. Antworte klar und freundlich.
+/*Moderationszyklus|Agenda|Methoden*/i | Methoden-Sammlung | https://example.com/Methoden.pdf
 
-🎨 Farben
+Farben
 
-Alle Farben sind über den Adminbereich frei wählbar und werden als CSS-Variablen gesetzt.
-Bereich	Standardfarbe
-Primärfarbe	#1a6ce6
-Akzentfarbe	#09a3e3
-Dunkel	#0e2a4a
-Text	#0b1220
-Hintergrund	#f7fafc
-Rahmenlinie	#dbe5f1
-Eingabe-Hintergrund	#eef6ff
-📄 PDF-Regeln
+Primär, Akzent, Dunkel, Text, Hintergrund, Rahmenlinie, Eingabe Hintergrund
+Alle als HEX, werden als CSS Variablen injiziert.
 
-Jede Zeile definiert eine Regel zur automatischen PDF-Einbettung:
+Datenschutz
 
-/*Moderationszyklus|Agenda|Methoden*/i | Methoden-Sammlung | https://example.com/Methoden.pdf | https://example.com/thumb.png
+Einwilligungstext: wird im Consent-Dialog angezeigt
 
-🔒 Datenschutz & Einwilligung
-Feld	Beschreibung
-Einwilligungstext	Text, der vor der ersten Nutzung angezeigt wird
-Link zur Datenschutzseite	URL zur DSGVO-Seite
-Einwilligungsdauer (Tage)	Gültigkeitsdauer, z. B. 30, 60 oder 90
+Link zur Datenschutzseite: z. B. /datenschutz/
 
-Nach Ablauf wird der Nutzer erneut um Zustimmung gebeten.
-💡 Beispiel-Screenshot
-<p align="center"> <img src="assets/screenshots/diana-chat-example.png" width="600" alt="Screenshot DiANA Chat" /> </p>
-🔍 REST-API-Schnittstelle
-Pfad	Methode	Beschreibung
-/wp-json/diana/v1/chat	POST	Weiterleitung zur OpenAI-API
+Einwilligungsdauer (Tage): z. B. 30, 60, 90
 
-Beispiel-Request
+REST Proxy
 
-{ "message": "Wie leite ich eine Gruppenentscheidung an?" }
+Pfad: POST /wp-json/diana/v1/chat
+Header: Content-Type: application/json, Diana-Origin: <window.location.origin>
 
-Beispiel-Response
+Body:
+{ "message": "Deine Frage" }
 
-{ "reply": "Hier sind drei Moderationsmethoden..." }
+Antwort:
+{ "reply": "Antwort-Text" }
 
-🧠 Sicherheit & Datenschutz
+Fehler:
+{ "error": "Beschreibung" }
 
-    Origin-Check verhindert Fremdzugriffe
+Sicherheit
 
-    Rate-Limit: 5 Anfragen / 10 s und 120 / Stunde pro IP
+Origin-Check: nur dieselbe Site darf posten
 
-    Keine Speicherung von Chat-Inhalten auf dem Server
+Rate-Limit: 10 s Burst und stündlich per Transients
 
-    Cron-Job entfernt alte Transients täglich
+Timeouts: cURL Zeitlimit, Retry ohne Temperatur oder Stop, wenn API das nicht erlaubt
 
-    Einwilligungspflicht vor Nutzung
+Keine Server-Logs der Chats: nur kurzlebige Transients
 
-    Consent-Speicherung lokal (Browser, Ablauf nach konfigurierter Dauer)
+DSGVO
 
-🧰 Entwicklung
+Consent Pflicht vor dem ersten Request
 
-    Lokale WordPress-Installation vorbereiten
+Consent-Lebensdauer in Tagen konfigurierbar, Standard 30
 
-    Plugin in wp-content/plugins/ kopieren
+Link zur Datenschutzseite im Dialog
 
-    Debug-Modus aktivieren:
+Lokaler Verlauf im Browser, kann über UI gelöscht werden
 
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
+Server-Logs durch Hoster, empfohlen 30 Tage
 
-JS → ES2020, PHP → PSR-12
+Troubleshooting
+
+cURL error 28, Timeout
+
+Prüfe Firewall und openai.com Erreichbarkeit
+
+Erhöhe PHP default_socket_timeout und WP HTTP Timeout
+
+Prüfe includes/curl-hardening.php und ggf. Timeout anheben
+
+Log-Level in Produktion gering halten
+
+HTTP 500
+
+PHP Error Log prüfen
+
+Fehlende PHP Extensions oder Syntaxfehler ausschließen
+
+WP_DEBUG_DISPLAY auf false, WP_DEBUG_LOG an
+
+JSON.parse: unexpected character
+
+API gibt HTML oder Plain-Text zurück
+
+REST Proxy weicht automatisch auf Text aus und formatiert Fehler
+
+Browser Cache leeren, prüfen ob Plugin doppelt eingebunden ist
+
+Fehler: empty response
+
+Responses API gab leere Ausgabe zurück
+
+Client versucht einmal neu
+
+Falls wieder leer: API Limits oder Model prüfen
+
+Roadmap
+
+Streaming der Antworten
+
+Datei-Uploads mit Embedding-Store
+
+Mehrsprachige UI per i18n
+
+Tests und CI
+
+Entwicklung
+
+Repo klonen
+
+In WordPress als Plugin-Ordner ablegen
+
+PHP Code Style: PSR-12
+
+JS Stil: ES2020, keine Frameworks, nur DOM API
 
 Commits nach Conventional Commits
 
+Beiträge
 
-Beispiel:
+Pull Requests willkommen. Lies bitte CONTRIBUTING.md und die PR-Vorlage.
 
-    feat: Einwilligungsdauer konfigurierbar gemacht
-    fix: Leere API-Antworten stabil abgefangen
-    docs: README aktualisiert
+Lizenz
 
-🧾 Versionsverlauf
+GPL-2.0-or-later. Siehe LICENSE.
 
-Siehe CHANGELOG.md
-🧑‍💻 Beiträge
-
-Beiträge sind willkommen!
-Lies bitte CONTRIBUTING.md
-
-für Hinweise zu Code-Stil und Pull-Requests.
-🔐 Sicherheit
-
-Sicherheitsrelevante Hinweise bitte nicht öffentlich posten.
-Melde potenzielle Schwachstellen vertraulich an:
-📧 security@zerap-germany.de
-Weitere Infos in SECURITY.md
-🪪 Lizenz
-
-Dieses Plugin steht unter der GNU General Public License v2.0 oder später.
-
-DiANA Chat – WordPress-Plugin  
-Copyright (C) 2025  
-Thierbachshof / ZERAP Germany e.V.
-
-Dieses Programm ist freie Software; Sie können es unter den Bedingungen
-der GNU General Public License weitergeben und/oder modifizieren.
-
-➡ Vollständiger Lizenztext: LICENSE
-🧭 Projekt-Infos
-
-ZERAP Germany e.V.
-🌐 https://www.zerap-germany.de
-
-📍 Straße der Freundschaft 2, 15518 Steinhöfel
-📧 info@zerap-germany.de
+Maintainer
+ZERAP Germany e. V., Community
 
 
-📞 +49 (0)33636 679 798
-❤️ Danksagung
+---
 
-    OpenAI
+## CONTRIBUTING.md
 
-– für die GPT-5 Responses API
+```markdown
+# Contributing
 
-WordPress.org
+Danke für deinen Beitrag.
 
-    – für das beste Plugin-Ökosystem
+## Wie starten
+- Fork erstellen
+- Branch vom aktuellen `main` abspalten
+- Konventionelle Commits nutzen: feat, fix, docs, chore, refactor
+- PHP nach PSR-12, JS ohne Linter-Warnungen
 
-    Alle Mitwirkenden, die DiANA weiter verbessern
+## Dev-Setup
+- WordPress lokal
+- Ordner als `wp-content/plugins/diana-ai-bot`
+- Debug: `WP_DEBUG` true, `WP_DEBUG_LOG` true
 
-<div align="center"> <sub>Entwickelt mit ☕ und 🌾 auf dem Thierbachshof in Brandenburg</sub> </div> ```
-🗂️ Empfohlene Zusatzdateien im Repo
-Datei	Zweck
-LICENSE	GPL-2.0-Text
-CHANGELOG.md	Versionen & Änderungen
-CONTRIBUTING.md	Hinweise für Mitwirkende
-SECURITY.md	Meldeverfahren für Sicherheitsprobleme
-assets/screenshots/	Screenshots der UI
-assets/logo-diana.png	Logo für GitHub-Header
+## Tests
+- Manuelle Tests in einer leeren Seite mit `[diana_chat]`
+- Szenarien: Consent neu, Ablauf nach X Tagen, Timeout, YouTube, PDF-Regel
 
->>>>>>> 276f471 (docs: deutsche Readme & Begleitdateien hinzugefügt)
+## PR-Richtlinien
+- Issue referenzieren
+- Kurze Beschreibung was und warum
+- Screenshots bei UI Änderungen
 
