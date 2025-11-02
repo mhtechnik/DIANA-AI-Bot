@@ -42,7 +42,7 @@ Keine Chat-Daten werden auf deinem Server gespeichert.
 ✅ Lokale Speicherung & Löschfunktion  
 
 ---
-
+```
 ## 🧩 Verzeichnisstruktur
 diana-ai-bot/
 ├─ diana-chat.php
@@ -60,7 +60,6 @@ diana-ai-bot/
 └─ README.md
 ```
 
-```
 ---
 
 ## ⚙️ Installation
