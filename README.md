@@ -40,7 +40,7 @@ Keine Chat-Daten werden auf deinem Server gespeichert.
 ✅ DSGVO-Einwilligung mit Ablauf (30–90 Tage)  
 ✅ Anpassbare Farbpalette  
 ✅ Lokale Speicherung & Löschfunktion  
-```
+
 ---
 
 ## 🧩 Verzeichnisstruktur
