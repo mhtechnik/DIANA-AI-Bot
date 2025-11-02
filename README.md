@@ -1,4 +1,4 @@
-![DiANA Logo](assets/logo-diana.png)
+![DiANA Logo](https://zerap-germany.de/wp-content/uploads/2025/10/Dianaklein.png)
 
 # DiANA – KI-Chat für WordPress
 
