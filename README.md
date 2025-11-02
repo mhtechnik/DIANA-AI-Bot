@@ -40,12 +40,10 @@ Keine Chat-Daten werden auf deinem Server gespeichert.
 ✅ DSGVO-Einwilligung mit Ablauf (30–90 Tage)  
 ✅ Anpassbare Farbpalette  
 ✅ Lokale Speicherung & Löschfunktion  
-
+```
 ---
 
 ## 🧩 Verzeichnisstruktur
-
-
 diana-ai-bot/
 ├─ diana-chat.php
 ├─ includes/
@@ -60,7 +58,6 @@ diana-ai-bot/
 │ ├─ js/diana-consent.js → Einwilligungsdialog (DSGVO)
 │ └─ admin/colorpicker.js → Farbauswahl im Backend
 └─ README.md
-
 
 ---
 
