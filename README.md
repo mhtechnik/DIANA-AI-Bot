@@ -80,22 +80,23 @@ wp-content/plugins/ kopieren
 ##🔧 Einstellungen im Backend
 
 🔐 API
-Feld	- Beschreibung
-API Key	- Dein OpenAI-API-Schlüssel
-Base URL	Optional, Standard: - https://api.openai.com
-Modell	- z. B. gpt-5
-Temperatur	- Optional (wird bei GPT-5 ignoriert)
-Max Tokens	- Maximale Ausgabegröße
-Stop-Sequenzen	- Kommagetrennte Liste von Stop-Wörtern
+Feld: Beschreibung
+API Key: Dein OpenAI-API-Schlüssel
+Base URL	Optional, Standard: https://api.openai.com
+Modell: z. B. gpt-5
+Temperatur: Optional (wird bei GPT-5 ignoriert)
+Max Tokens: Maximale Ausgabegröße
+Stop-Sequenzen: ommagetrennte Liste von Stop-Wörtern
 
 ## 💬 Prompt
 Definiert, wie DiANA spricht.
 Du bist DiANA, eine ruhige Co-Moderatorin. Antworte klar und freundlich.
+Du kann DiANA natürlcih jederzeit in einen anderen Bot Namen ändern.
 
 ## 🎨 Farben
 Alle Farben sind über den Adminbereich frei wählbar und werden als CSS-Variablen gesetzt.
-
-Bereich	-- Standardfarbe
+```
+Bereich: Standardfarbe
 Primärfarbe	         --    #1a6ce6
 Akzentfarbe	         --    #09a3e3
 Dunkel	            --    #0e2a4a
@@ -103,6 +104,7 @@ Text	               --    #0b1220
 Hintergrund	         --    #f7fafc
 Rahmenlinie	         --    #dbe5f1
 Eingabe-Hintergrund	--    #eef6ff
+```
 
 ## 📄 DF-Regeln
 Jede Zeile definiert eine Regel zur automatischen PDF-Einbettung:
