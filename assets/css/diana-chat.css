@@ -5,29 +5,41 @@
   --diana-text:#0b1220;
   --diana-bg:#f7fafc;
   --diana-border:#dbe5f1;
+  --diana-input-bg:#eef6ff;
 }
 
-/* Container */
-#diana-wrap{width:100%;box-sizing:border-box;max-width:100%;margin:1rem 0;}
+.diana-wrap{width:100%;box-sizing:border-box;max-width:100%;margin:1rem 0}
+
+/* Box */
 .diana-box{
   width:100%;
+  position:relative;
   border:1px solid var(--diana-border);
   border-radius:12px;
   padding:12px;
+  padding-bottom:64px;
   background:#fff;
-  font-size:clamp(14px, 1.6vw, 16px);
+  font-size:clamp(15px, 4.2vw, 16px);
   line-height:1.5;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
   color:var(--diana-text);
+  -webkit-text-size-adjust:100%;
 }
 
 /* Log */
-.diana-log{min-height:220px;max-height:60vh;overflow:auto;padding:8px 4px;background:var(--diana-bg);border-radius:10px}
+.diana-log{
+  min-height:220px;
+  max-height:60vh;
+  overflow:auto;
+  padding:8px 4px;
+  background:var(--diana-bg);
+  border-radius:10px;
+}
 @media (max-width:480px){ .diana-log{max-height:56vh} }
 
+/* Bubbles */
 .diana-row{display:flex;gap:10px;margin:10px 0;align-items:flex-end}
 .diana-me{justify-content:flex-end}
-
 .diana-bubble{
   max-width:85%;
   padding:10px 12px;
@@ -38,24 +50,46 @@
   border:1px solid var(--diana-border);
 }
 @media (max-width:640px){ .diana-bubble{max-width:92%} }
-
 .diana-me .diana-bubble{background:var(--diana-dark);color:#fff;border-color:var(--diana-dark)}
 
-.diana-ava{width:36px;height:36px;border-radius:50%;flex:0 0 36px;background:linear-gradient(135deg,var(--diana-primary),var(--diana-accent));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;overflow:hidden}
+/* Avatar */
+.diana-ava{
+  width:36px;height:36px;flex:0 0 36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--diana-primary),var(--diana-accent));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:#fff;overflow:hidden
+}
 .diana-ava img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 
 /* Input */
-.diana-input{display:flex;gap:8px;margin-top:10px}
-.diana-input input{flex:1;padding:.7rem;border:1px solid var(--diana-border);border-radius:10px;outline:none;font-size:1em}
+.diana-input{display:flex;gap:8px;margin-top:10px;align-items:stretch}
+.diana-input input{
+  flex:1;border:1px solid var(--diana-border);border-radius:10px;outline:none;
+  background:var(--diana-input-bg)!important;font-size:1em;padding:.7rem .8rem
+}
 .diana-input input:focus{border-color:var(--diana-primary);box-shadow:0 0 0 3px rgba(26,108,230,.15)}
-.diana-input button{padding:.7rem 1rem;border:0;border-radius:10px;background:var(--diana-primary);color:#fff;font-size:1em}
+.diana-input input::placeholder{opacity:.7}
+
+/* Senden Button exakt so hoch */
+.diana-input button{
+  flex:0 0 auto;border:0;border-radius:10px;background:var(--diana-primary);color:#fff;
+  padding:0 1.2rem;font-size:1em;display:flex;align-items:center;justify-content:center;min-width:90px;height:auto
+}
+
+/* Toolbar und Clear */
 .diana-toolbar{display:flex;gap:8px;justify-content:space-between;margin-top:8px;flex-wrap:wrap}
-.diana-right{display:flex;gap:8px}
+#diana-clear{
+  position:absolute;left:10px;bottom:10px;padding:.45rem .7rem;border:1px solid var(--diana-border);
+  border-radius:8px;background:#fff;cursor:pointer;font-size:.95em
+}
 .diana-busy{opacity:.6;pointer-events:none}
 
-/* Suggestions */
+/* Vorschläge */
 .diana-suggest{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-.diana-suggest button{background:#fff;border:1px solid var(--diana-border);color:var(--diana-dark);border-radius:18px;padding:.35rem .7rem;cursor:pointer;font-size:.95em}
+.diana-suggest button{
+  background:#fff;border:1px solid var(--diana-border);color:var(--diana-dark);
+  border-radius:18px;padding:.35rem .7rem;cursor:pointer;font-size:1em
+}
 .diana-suggest button:hover{border-color:var(--diana-primary);color:var(--diana-primary)}
 
 /* Typing */
@@ -67,7 +101,7 @@
 /* Video */
 .diana-vthumb{width:100%;height:100%;object-fit:cover;border:0}
 
-/* PDF-Karte und Viewer */
+/* PDF */
 .diana-pdfcard{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--diana-border);border-radius:10px;padding:10px 12px;margin-top:6px}
 .diana-pdfthumb{width:64px;height:64px;background:#eef3fb;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;overflow:hidden}
 .diana-pdfthumb img{width:100%;height:100%;object-fit:cover;border-radius:6px}
@@ -78,11 +112,19 @@
 .diana-linkbtn.primary{background:var(--diana-primary);color:#fff;border-color:var(--diana-primary)}
 .diana-pdfviewer{width:100%;max-width:640px;aspect-ratio:4/3;border:0}
 
-/* Simplere Typo in der Bubble */
+/* Typografie in Bubbles */
 .diana-bubble .diana-md{line-height:1.55}
 .diana-bubble .diana-md p{margin:.4rem 0;font-size:1em}
-.diana-bubble .diana-md ul,
-.diana-bubble .diana-md ol{padding-left:1.25rem;margin:.35rem 0}
+.diana-bubble .diana-md ul,.diana-bubble .diana-md ol{padding-left:1.25rem;margin:.35rem 0}
 .diana-bubble .diana-md li{margin:.12rem 0}
 .diana-bubble .diana-md a{color:var(--diana-primary);text-decoration:underline;word-break:break-all}
 .diana-bubble .diana-md code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:#f2f6fb;border:1px solid var(--diana-border);border-radius:4px;padding:.05rem .3rem}
+
+/* Mobile Schrift kleiner */
+@media (max-width:480px){
+  .diana-box{font-size:14px}
+  .diana-input input,
+  .diana-input button,
+  .diana-suggest button,
+  .diana-bubble .diana-md p{font-size:.95em}
+}
