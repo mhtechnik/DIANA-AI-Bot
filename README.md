@@ -58,7 +58,9 @@ diana-ai-bot/
 │ ├─ js/diana-consent.js → Einwilligungsdialog (DSGVO)
 │ └─ admin/colorpicker.js → Farbauswahl im Backend
 └─ README.md
+```
 
+```
 ---
 
 ## ⚙️ Installation
